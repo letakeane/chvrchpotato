@@ -1,0 +1,53 @@
+.Stats {
+  background-color: #494059;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  justify-items: center;
+  margin: auto;
+  padding: 1vh 12vw 3vh 12vw;
+  width: 100vw;
+
+  position: fixed;
+  bottom: 0;
+}
+
+.patience,
+.crediblity,
+.power {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Stats p {
+  color: ghostwhite;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.Stats .statusbar {
+  border: 2px solid #696075;
+  width: calc(70vw / 3.3);
+  height: 4vh;
+  background-color: #c4c1c9;
+}
+
+.stat {
+  height: 4vh;
+}
+
+.full {
+  background-color: #4a663a;
+}
+
+.warning {
+  background-color: #b39322;
+}
+
+.depleted {
+  background-color: #962736;
+}

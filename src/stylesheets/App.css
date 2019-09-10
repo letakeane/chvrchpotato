@@ -1,0 +1,5 @@
+body {
+  overscroll-behavior: none;
+  background-color: black;
+  font-family: "Inconsolata", monospace;
+}

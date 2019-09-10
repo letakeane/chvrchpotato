@@ -1,0 +1,33 @@
+.Window {
+  background-color: #494059;
+  border: 2px solid gray;
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: ghostwhite;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'action action'
+  'action action'
+  'optionA optionB';
+  height: 75vh;
+  margin: 6vh auto;
+  padding: 15px;
+  width: 73vw;
+}
+
+.Window .action {
+  font-size: 18px;
+  grid-area: action;
+  text-align: center;
+}
+
+.Window .optionA {
+  font-size: 14px;
+  grid-area: optionA;
+}
+
+.Window .optionB {
+  font-size: 14px;
+  grid-area: optionB;
+  text-align: right;
+}
