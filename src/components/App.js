@@ -27,9 +27,9 @@ function App() {
           pressB={() => setCurrentStory(currentMission[currentStory.optionB.storyID])}
         />
         <Stats
-          currentPatience={currentStory.stats.patience}
-          currentCredibility={currentStory.stats.credibility}
-          currentStrength={currentStory.stats.strength}
+          patience={currentStory.stats.patience}
+          credibility={currentStory.stats.credibility}
+          strength={currentStory.stats.strength}
         />
       </footer>
     </div>
