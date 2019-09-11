@@ -17,17 +17,18 @@
 
 .Window .action {
   font-size: 18px;
+  font-weight: bold;
   grid-area: action;
   text-align: center;
 }
 
 .Window .optionA {
-  font-size: 14px;
+  font-size: 16px;
   grid-area: optionA;
 }
 
 .Window .optionB {
-  font-size: 14px;
+  font-size: 16px;
   grid-area: optionB;
   text-align: right;
 }

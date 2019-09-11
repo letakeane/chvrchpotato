@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../stylesheets/Stats.css";
 
-const Stats = () => {
-  const [credibility, setCredibility] = useState(100);
-  const [patience, setPatience] = useState(60);
-  const [power, setPower] = useState(100);
+const Stats = ({currentPatience, currentCredibility, currentStrength}) => {
+  const [patience, setPatience] = useState(currentPatience);
+  const [credibility, setCredibility] = useState(currentCredibility);
+  const [strength, setStrength] = useState(currentStrength);
   const [amount, setAmount] = useState("full");
 
   const determineAmount = amount => {
@@ -12,6 +12,18 @@ const Stats = () => {
     if (amount >= 15 && amount <= 60) return "warning";
     if (amount <= 14) return "depleted";
   };
+
+  const setAll = async () => {
+    try {
+      await setPatience(currentPatience);
+      await setCredibility(currentCredibility);
+      await setStrength(currentStrength);
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
+  setAll();
 
   return (
     <div className="Stats">
@@ -33,12 +45,12 @@ const Stats = () => {
           ></div>
         </div>
       </div>
-      <div className="power">
-        <p>Power</p>
+      <div className="strength">
+        <p>Strength</p>
         <div className="statusbar">
           <div
-            className={"stat " + determineAmount(power)}
-            style={{ width: power + "%" }}
+            className={"stat " + determineAmount(strength)}
+            style={{ width: strength + "%" }}
           ></div>
         </div>
       </div>
