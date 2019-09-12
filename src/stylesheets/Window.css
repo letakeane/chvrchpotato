@@ -20,15 +20,18 @@
   font-weight: bold;
   grid-area: action;
   text-align: center;
+  white-space: pre-wrap;
 }
 
 .Window .optionA {
   font-size: 16px;
   grid-area: optionA;
+  white-space: pre-wrap;
 }
 
 .Window .optionB {
   font-size: 16px;
   grid-area: optionB;
   text-align: right;
+  white-space: pre-wrap;
 }

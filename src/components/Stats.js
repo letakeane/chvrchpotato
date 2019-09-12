@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../stylesheets/Stats.css";
 
 const Stats = ({patience, credibility, strength}) => {

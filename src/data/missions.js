@@ -16,7 +16,7 @@ const missions = {
     3: {
       stats: { patience: 65, credibility: 100, strength: 100 },
       action:
-        "With a full stomach and caffeine on your side, you make your way to the afflicted family's home.",
+        "With a full stomach and caffeine on your side, you make your way to the afflicted family's home.\nWhen you arrive....",
       optionA: { text: "SOME ACTION.", storyID: 6 },
       optionB: { text: "A DIFFERENT ACTION.", storyID: 7 }
     }
