@@ -1,39 +1,94 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import Window from "./Window";
 import Controls from "./Controls";
 import Stats from "./Stats";
-import missionData from "../data/missions";
+import stories from "../data/missions";
 import "../stylesheets/App.css";
 
-function App() {
-  const [currentMission, setCurrentMission] = useState(missionData[1]);
-  const [currentStory, setCurrentStory] = useState(currentMission[1]);
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currentStory: stories[1],
+      patience: 60,
+      credibility: 100,
+      strength: 100,
+      storyLoaded: false
+    };
+  }
 
-  return (
-    <div className="App">
-      <header className="App-header"></header>
+  componentDidMount() {
+    this.setState(
+      {
+        patience: this.state.patience + this.state.currentStory.stats.patience,
+        crediblity:
+          this.state.credibility + this.state.currentStory.stats.credibility,
+        strength: this.state.strength + this.state.currentStory.stats.strength
+      },
+      this.setState({ storyLoaded: true })
+    );
+  }
 
-      <main>
-        <Window
-          action={currentStory.action}
-          optionA={currentStory.optionA.text}
-          optionB={currentStory.optionB.text}
-        />
-      </main>
+  pressA = () => {
+    this.setState(
+      {
+        currentStory: stories[this.state.currentStory.optionA.storyID]
+      },
+      () => {
+        this.setState({
+          patience:
+            this.state.patience + this.state.currentStory.stats.patience,
+          credibility:
+            this.state.credibility + this.state.currentStory.stats.credibility,
+          strength: this.state.strength + this.state.currentStory.stats.strength
+        });
+      }
+    );
+  };
 
-      <footer>
-        <Controls
-          pressA={() => setCurrentStory(currentMission[currentStory.optionA.storyID])}
-          pressB={() => setCurrentStory(currentMission[currentStory.optionB.storyID])}
-        />
-        <Stats
-          patience={currentStory.stats.patience}
-          credibility={currentStory.stats.credibility}
-          strength={currentStory.stats.strength}
-        />
-      </footer>
-    </div>
-  );
+  pressB = () => {
+    this.setState(
+      {
+        currentStory: stories[this.state.currentStory.optionB.storyID]
+      },
+      () => {
+        this.setState({
+          patience:
+            this.state.patience + this.state.currentStory.stats.patience,
+          credibility:
+            this.state.credibility + this.state.currentStory.stats.credibility,
+          strength: this.state.strength + this.state.currentStory.stats.strength
+        });
+      }
+    );
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header"></header>
+
+        {this.state.storyLoaded && (
+          <>
+            <main>
+              <Window
+                action={this.state.currentStory.action}
+                optionA={this.state.currentStory.optionA.text}
+                optionB={this.state.currentStory.optionB.text}
+              />
+            </main>
+
+            <footer>
+              <Controls pressA={this.pressA} pressB={this.pressB} />
+              <Stats
+                patience={this.state.patience}
+                credibility={this.state.credibility}
+                strength={this.state.strength}
+              />
+            </footer>
+          </>
+        )}
+      </div>
+    );
+  }
 }
-
-export default App;

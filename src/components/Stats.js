@@ -2,11 +2,13 @@ import React from "react";
 import "../stylesheets/Stats.css";
 
 const Stats = ({patience, credibility, strength}) => {
+
   const determineAmount = amount => {
     if (amount >= 61) return "full";
     if (amount >= 15 && amount <= 60) return "warning";
     if (amount <= 14) return "depleted";
   };
+
 
   return (
     <div className="Stats">

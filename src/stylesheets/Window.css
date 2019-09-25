@@ -1,5 +1,5 @@
 .Window {
-  background-color: #494059;
+  background-color: #26222e;
   border: 2px solid gray;
   border-radius: 20px;
   box-sizing: border-box;
@@ -9,6 +9,7 @@
   grid-template-areas: 'action action'
   'action action'
   'optionA optionB';
+  grid-gap: 2px;
   height: 75vh;
   margin: 6vh auto;
   padding: 15px;
