@@ -1,5 +1,11 @@
 body {
   overscroll-behavior: none;
   background-color: black;
+  background: url('/desk.jpg');
+  background-size: cover;
   font-family: "Inconsolata", monospace;
+}
+
+.App {
+  height: 94vh;
 }

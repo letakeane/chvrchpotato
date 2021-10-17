@@ -4,12 +4,16 @@ import "../stylesheets/Controls.css";
 const Controls = ({ pressA, pressB }) => {
   return (
     <div className="Controls">
-      <button className="A" onClick={pressA}>
-        A
-      </button>
-      <button className="B" onClick={pressB}>
-        B
-      </button>
+      <div className="A" onClick={pressA}>
+        <span className="shadow"></span>
+        <span className="edge"></span>
+        <span className="front">A</span>
+      </div>
+      <div className="B" onClick={pressB}>
+        <span className="shadow"></span>
+        <span className="edge"></span>
+        <span className="front">B</span>
+      </div>
     </div>
   );
 };

@@ -11,23 +11,88 @@
 
 .Controls .A,
 .Controls .B {
-  background-color: #d4a200;
-  border: none;
   border-radius: 50px;
   box-sizing: border-box;
-  color: ghostwhite;
-  font-size: 30px;
-  height: 8vw;
-  line-height: 14vh;
+  
   margin: 2vw;
   min-height: 45px;
   min-width: 45px;
   text-align: center;
   width: 8vw;
   outline: rgba(0,0,0,0);
+
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
-.Controls .A {
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #22160a;
+  transform: translateY(2px);
+  filter: blur(6px);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(
+    to left,
+    #4e3e07 0%,
+    #94750f 25%,
+    #94750f 75%,
+    #4e3e07 100%
+  );
+}
+
+.front {
+  background-color: #d4a200;
+  border-radius: 50%;
+  color: #3d3f3c;
+  display: block;
+  font-size: 6vw;
+  font-weight: bold;
+  line-height: 1.3;
+  position: relative;
+  transform: translateY(-4px);
+  height: 8vw;
+  transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+  /* text-shadow: 0 -2px #b37d00; */
+  text-shadow: 0px 2px 0px rgba(255,255,255,.3), 0px -2px 0px rgba(0,0,0,.7);
+}
+
+.A:active .front,
+.B:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.A:active .shadow,
+.B:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+
+
+/* .Controls .A {
   box-shadow: -3px 2px #b37d00;
   text-shadow: 2px -2px #b37d00;
 }
@@ -45,4 +110,8 @@
 .Controls .B:active {
   box-shadow: none;
   transform: translate(3px, 3px);
+} */
+
+@keyframes clickA {
+
 }

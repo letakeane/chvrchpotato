@@ -30,10 +30,10 @@
 }
 
 .Stats .statusbar {
-  border: 2px solid #696075;
+  border: 2px ridge #65697a;
   width: calc(70vw / 3.3);
   height: 4vh;
-  background-color: #c4c1c9;
+  background-color: #362c25;
 }
 
 .stat {

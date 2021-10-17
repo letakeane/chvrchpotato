@@ -13,7 +13,7 @@ const missions = {
       optionB: { text: "Another option", storyID: 5 }
     },
     3: {
-      stats: { patience: 15, credibility: 0, strength: 0 },
+      stats: { patience: 15, credibility: -10, strength: 0 },
       action:
         "With a full stomach and caffeine on your side, you make your way to the afflicted family's home.\nWhen you arrive, you find the household in chaos.",
       optionA: { text: "SOME ACTION.", storyID: 6 },
