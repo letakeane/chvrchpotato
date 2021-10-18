@@ -20,6 +20,7 @@ export default class App extends Component {
   componentDidMount() {
     this.setStats();
     this.setState({ storyLoaded: true });
+    window.addEventListener('onorientationchange', this.render);
   }
 
   setStats = () => {
@@ -69,8 +70,11 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header"></header>
+        {window.screen.orientation.type.includes('portrait') &&
+          <h1 className="orientation-warning">Please rotate device to landscape mode!</h1>
+        }
 
-        {this.state.storyLoaded && (
+        {window.screen.orientation.type.includes('landscape') &&this.state.storyLoaded && (
           <>
             <main>
               <Window

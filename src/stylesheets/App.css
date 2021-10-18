@@ -9,3 +9,10 @@ body {
 .App {
   height: 94vh;
 }
+
+.orientation-warning {
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+}
