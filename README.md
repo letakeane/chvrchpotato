@@ -17,6 +17,10 @@ To set up locally,
 1. Run `npm install`
 1. Run `npm start` to begin the development server
 
+## Gameplay
+
+![screenshot of the first story screen](./chvrchpotato-screenshot.png)
+
 ## Tech Stack
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
