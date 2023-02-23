@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Window from "./Window";
-import Controls from "./Controls";
-import Stats from "./Stats";
+import Window from "./Window.tsx";
+import Controls from "./Controls.tsx";
+import Stats from "./Stats.tsx";
 import stories from "../data/missions";
 import "../stylesheets/App.css";
 
