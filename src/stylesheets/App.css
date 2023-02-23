@@ -1,7 +1,7 @@
 body {
   overscroll-behavior: none;
   background-color: black;
-  background: url('/desk.jpg');
+  background: url('../../public/desk.jpg');
   background-size: cover;
   font-family: "Inconsolata", monospace;
 }

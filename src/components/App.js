@@ -1,40 +1,24 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Window from "./Window";
 import Controls from "./Controls";
 import Stats from "./Stats";
 import stories from "../data/missions";
 import "../stylesheets/App.css";
 
-export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      currentStory: stories[1],
-      patience: 60,
-      credibility: 100,
-      strength: 100,
-      storyLoaded: false,
-    };
-  }
+const App = () => {
+  const [currentStory, setCurrentStory] = useState(stories[1]);
+  const [patience, setPatience] = useState(60);
+  const [credibility, setCredibility] = useState(100);
+  const [strength, setStrength] = useState(100);
+  const [storyLoaded, setStoryLoaded] = useState(false);
 
-  componentDidMount() {
-    this.setStats();
-    this.setState({ storyLoaded: true });
-    window.addEventListener('onorientationchange', this.render);
-  }
-
-  setStats = () => {
-    this.setState({
-      patience:
-        this.checkValue(this.state.patience, this.state.currentStory.stats.patience),
-      credibility:
-        this.checkValue(this.state.credibility, this.state.currentStory.stats.credibility),
-      strength:
-        this.checkValue(this.state.strength, this.state.currentStory.stats.strength)
-    });
+  const setStats = () => {
+    setPatience(checkValue(patience, currentStory.stats.patience));
+    setCredibility(checkValue(credibility, currentStory.stats.credibility));
+    setStrength(checkValue(strength, currentStory.stats.strength));
   };
 
-  checkValue = (currVal, newVal) => {
+  const checkValue = (currVal, newVal) => {
     if (currVal + newVal >= 100) {
       return 100
     } else if (currVal + newVal <= 0) {
@@ -44,57 +28,51 @@ export default class App extends Component {
     }
   }
 
-  pressA = () => {
-    this.setState(
-      {
-        currentStory: stories[this.state.currentStory.optionA.storyID],
-      },
-      () => {
-        this.setStats();
-      }
-    );
+  useEffect(() => {
+    setStats();
+    setStoryLoaded(true);
+    // window.addEventListener('onorientationchange', forced rerender here);
+  }, [])
+
+  const pressA = () => {
+    setCurrentStory(stories[currentStory.optionA.storyID])
+    setStats();
   };
 
-  pressB = () => {
-    this.setState(
-      {
-        currentStory: stories[this.state.currentStory.optionB.storyID],
-      },
-      () => {
-        this.setStats();
-      }
-    );
+  const pressB = () => {
+    setCurrentStory(stories[currentStory.optionB.storyID])
+    setStats();
   };
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header"></header>
-        {window.screen.orientation.type.includes('portrait') &&
-          <h1 className="orientation-warning">Please rotate device to landscape mode!</h1>
-        }
+  return (
+    <div className="App">
+      <header className="App-header"></header>
+      {window.screen.orientation.type.includes('portrait') &&
+        <h1 className="orientation-warning">Please rotate device to landscape mode!</h1>
+      }
 
-        {window.screen.orientation.type.includes('landscape') && this.state.storyLoaded && (
-          <>
-            <main>
-              <Window
-                action={this.state.currentStory.action}
-                optionA={this.state.currentStory.optionA.text}
-                optionB={this.state.currentStory.optionB.text}
-              />
-              <Controls pressA={this.pressA} pressB={this.pressB} />
-            </main>
+      {window.screen.orientation.type.includes('landscape') && storyLoaded && (
+        <>
+          <main>
+            <Window
+              action={currentStory.action}
+              optionA={currentStory.optionA.text}
+              optionB={currentStory.optionB.text}
+            />
+            <Controls pressA={pressA} pressB={pressB} />
+          </main>
 
-            <footer>
-              <Stats
-                patience={this.state.patience}
-                credibility={this.state.credibility}
-                strength={this.state.strength}
-              />
-            </footer>
-          </>
-        )}
-      </div>
-    );
-  }
+          <footer>
+            <Stats
+              patience={patience}
+              credibility={credibility}
+              strength={strength}
+            />
+          </footer>
+        </>
+      )}
+    </div>
+  );
 }
+
+export default App;
