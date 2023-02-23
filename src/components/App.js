@@ -74,7 +74,7 @@ export default class App extends Component {
           <h1 className="orientation-warning">Please rotate device to landscape mode!</h1>
         }
 
-        {window.screen.orientation.type.includes('landscape') &&this.state.storyLoaded && (
+        {window.screen.orientation.type.includes('landscape') && this.state.storyLoaded && (
           <>
             <main>
               <Window
