@@ -19,6 +19,8 @@ To set up locally,
 
 ## Gameplay
 
+Designed to play like an old-school handheld console, the game features a large screen to display the text, and two buttons to select between the story options. A bar at the bottom displays the player's stats, which update with each choice the player makes.
+
 ![screenshot of the first story screen](./public/chvrchpotato-screenshot.png)
 
 ## Tech Stack
