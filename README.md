@@ -19,7 +19,7 @@ To set up locally,
 
 ## Gameplay
 
-![screenshot of the first story screen](./chvrchpotato-screenshot.png)
+![screenshot of the first story screen](./public/chvrchpotato-screenshot.png)
 
 ## Tech Stack
 
