@@ -4,9 +4,27 @@ _This project was bootstrapped with [Create React App](https://github.com/facebo
 
 A text-based game about a lazy exorcist.
 
+## Learning goal
+
+A personal project, this is an exercise in creativity and learning. With a very lightweight interface, this game is a good way to learn TypeScript. In it, I've practiced using the React.FC type, and creating interfaces for props.
+
+I'm also enjoying learning how to tell stories in a branching, CYOA format.
+
 ## Status
 
 In progress.
+
+**To do:**
+
+- Complete story
+- Playtest
+- Add title screen
+
+**Nice ot haves / possible to dos:**
+
+- Build tracking/saving for player wins/losses
+- Create a db to store the story data?
+- Use OAuth to enable user login?
 
 ## The story
 
