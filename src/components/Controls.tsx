@@ -1,7 +1,12 @@
 import React from "react";
 import "../stylesheets/Controls.css";
 
-const Controls = ({ pressA, pressB }) => {
+interface ControlsProps {
+  pressA: () => void;
+  pressB: () => void;
+}
+
+const Controls: React.FC<ControlsProps> = ({ pressA, pressB }) => {
   return (
     <div className="Controls">
       <div className="A" onClick={pressA}>

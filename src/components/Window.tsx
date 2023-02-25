@@ -1,7 +1,13 @@
 import React from "react";
 import "../stylesheets/Window.css";
 
-const Window = ({ action, optionA, optionB }) => {
+interface WindowProps {
+  action: string;
+  optionA: string;
+  optionB: string;
+}
+
+const Window: React.FC<WindowProps> = ({ action, optionA, optionB }) => {
   return (
     <div className="Window">
       <div className="action">{action}</div>

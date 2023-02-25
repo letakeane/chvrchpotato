@@ -1,7 +1,13 @@
 import React from "react";
 import "../stylesheets/Stats.css";
 
-const Stats = ({patience, credibility, strength}) => {
+interface StatsProps {
+  patience: number;
+  credibility: number;
+  strength: number;
+}
+
+const Stats: React.FC<StatsProps> = ({ patience, credibility, strength }) => {
 
   const determineAmount = amount => {
     if (amount >= 61) return "full";

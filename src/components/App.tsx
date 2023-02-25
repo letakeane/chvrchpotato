@@ -5,12 +5,12 @@ import Stats from "./Stats.tsx";
 import stories from "../data/missions";
 import "../stylesheets/App.css";
 
-const App = () => {
+const App: React.FC = () => {
   const [currentStory, setCurrentStory] = useState(stories[1]);
-  const [patience, setPatience] = useState(60);
-  const [credibility, setCredibility] = useState(100);
-  const [strength, setStrength] = useState(100);
-  const [storyLoaded, setStoryLoaded] = useState(false);
+  const [patience, setPatience] = useState<number>(60);
+  const [credibility, setCredibility] = useState<number>(100);
+  const [strength, setStrength] = useState<number>(100);
+  const [storyLoaded, setStoryLoaded] = useState<boolean>(false);
 
   const setStats = () => {
     setPatience(checkValue(patience, currentStory.stats.patience));
@@ -18,7 +18,7 @@ const App = () => {
     setStrength(checkValue(strength, currentStory.stats.strength));
   };
 
-  const checkValue = (currVal, newVal) => {
+  const checkValue = (currVal: number, newVal: number) => {
     if (currVal + newVal >= 100) {
       return 100
     } else if (currVal + newVal <= 0) {
